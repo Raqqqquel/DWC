@@ -1,0 +1,10 @@
+{
+    "publicaciones" : [
+    { "id" : 1 , "title" : "json-server" , "author" : "typicode" }
+    ],
+    "comentarios" : [
+    { "id" : 1 , "body" : "algún comentario" , "postId " : 1 }
+    ],
+    "profile" : { "name" : "typicode" }
+}
+   

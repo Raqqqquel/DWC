@@ -1,0 +1,14 @@
+div{
+    display:inline-block;
+    width:300px;
+    background-color: rgb(255, 226, 253);
+    border-radius: 5px;
+    font-size: 14pt;
+}
+
+boton{
+    margin:auto;
+    font-size: 10pt;
+    border-radius: 4px;
+    background-color: rgb(255, 136, 237);
+}

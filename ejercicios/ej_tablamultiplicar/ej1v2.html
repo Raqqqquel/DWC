@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de multiplicar en una tabla</title>
+</head>
+<body>
+    <h1>Tabla de Multiplicar dado un número</h1>
+
+    <div>
+       <table id="tabla" style="font-size:14pt;border: 3px solid rgb(255, 136, 237);text-align:center; min-width: 300px;margin:auto;">
+           <tr><td></td><td></td></tr>
+       </table>
+    </div>
+    <button onclick="tabla()" style="margin:auto;font-size: 14pt;border-radius: 4px;background-color: rgb(255, 136, 237);">Ver Tabla</button>
+
+    <script>
+        function tabla(){
+            
+            let tabla = parseInt(prompt("Introduce el número sobre el cual crear la tabla"));
+
+            // Introduce encabezados de la tabla
+            let resultado = "<tr><th>Multiplicación</th><th>Resultado</th></tr>";
+
+            // Bucle que recorre hasta multiplicar por 10
+            for (i=0;i<=10;i++) {
+            resultado += '<tr><td>' +tabla+ 'x' +i+ '</td><td>' + (tabla * i) + '</td></tr>';
+            }
+
+            // Muestra el resultado por pantalla
+            document.getElementById('tabla').innerHTML = resultado;
+        }
+
+    </script>
+
+</body>
+</html>

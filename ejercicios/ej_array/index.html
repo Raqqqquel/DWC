@@ -1,0 +1,192 @@
+<html>
+<body>
+<h2>Arrays de Objetos</h2>
+
+<button onclick="notasAlumno()">Notas de un alumno</button><br><p>
+
+<button onclick="subeUnPunto()">Subir un punto en cada asignatura</button><br><p>
+
+<button onclick="alumnosCiudad()">Buscar alumnos de una ciudad</button>
+<button onclick="alumnosCurso()">Buscar alumnos de un curso</button><br><p>
+
+<button onclick="ordenaEdad()">Ordenar alumnos por edad</button>
+<button onclick="ordenaNombreAsc()">Ordenar alumnos por nombre ascendente</button>
+<button onclick="ordenaNombreDesc()">Ordenar alumnos por nombre descendente</button><br><p>
+
+<button onclick="borrarAlumno()">Borrar alumno</button><br><p>
+
+<button onclick="nuevoAlumno()">Nuevo alumno</button>
+<button onclick="nuevaAsignatura()">Nueva asignatura</button>
+<button onclick="ordenaFecha()">Ordenar dos fechas</button>
+</body>
+
+<script>
+"use strict"
+let alumnos=[{'codigo':'DAW-1-2020',
+              'nombre':'Pepe',
+              'ciudad':'Valencia',
+			  'calificaciones':[{'asignatura':'PRG','nota':9},
+			                    {'asignatura':'GBD','nota':6}, 
+								{'asignatura':'ING','nota':4},
+								{'asignatura':'FOL','nota':3}
+								],
+			  'edad':24},
+			  {'codigo':'DAW-2-2020',
+			  'nombre':'Juan',
+              'ciudad':'Castellon',
+			  'calificaciones':[{'asignatura':'DWC','nota':4},
+			                    {'asignatura':'DWS','nota':6}, 
+								{'asignatura':'DAW','nota':7},
+								{'asignatura':'DIW','nota':8},
+								{'asignatura':'ING','nota':9},
+			                    {'asignatura':'EIE','nota':2}
+								],
+			  'edad':28},
+			  {'codigo':'DAW-1-2019',
+			  'nombre':'Ana',
+              'ciudad':'Valencia',
+			  'calificaciones':[{'asignatura':'PRG','nota':6},
+			                    {'asignatura':'GBD','nota':2}, 
+								{'asignatura':'ING','nota':6},
+								{'asignatura':'FOL','nota':2}
+								],
+			  'edad':22},
+			  {'codigo':'DAW-2-2020',
+			  'nombre':'Maria',
+              'ciudad':'Castellon',
+			  'calificaciones':[{'asignatura':'DWC','nota':4},
+			                    {'asignatura':'DWS','nota':6}, 
+								{'asignatura':'DAW','nota':7},
+								{'asignatura':'DIW','nota':8},
+								{'asignatura':'ING','nota':4},
+			                    {'asignatura':'EIE','nota':1}
+								],
+			  'edad':30}
+			]
+			  
+
+    function notasAlumno(){
+        let nombreAlumno = prompt("Introduce el nombre del alumno: ");
+        let existeAlumno = alumnos.find(alumno => alumno.nombre == nombreAlumno)
+
+        if (existeAlumno == undefined) {
+            console.log('El alumno no existe')
+        }
+        console.log(existeAlumno)
+
+        //let media = 0
+        //let max = 0
+        //let min = 0
+        //let maxAsignatura = 0
+        //let minAsignatura = 0
+
+        //alumnos.calificaciones.find(c => calificaciones{
+          //                                  if (c=)
+            //                            })
+    }
+
+    function subeUnPunto(){
+        alumnos.forEach(e=> e.calificaciones.forEach(notas=>(notas.nota+=1)))
+    }
+
+    function alumnosCiudad(){
+        let ciudad = prompt("Introduce la ciudad: ")
+        let alumnoFilter = alumnos.filter(alumno => alumno.ciudad == ciudad)
+
+        if (alumnoFilter.length==0){
+            console.log('No hay ningún alumno de esa ciudad');
+        } else{
+            console.log('Alumnos de ' + ciudad)
+            alumnoFilter.forEach(a => console.log(a.alumnoFilter))
+            console.log(alumnoFilter)
+        }
+    }
+
+    function alumnosCurso(){        
+        let alumno = prompt ("Introduce el alumno: ")
+        let curso = prompt("Introduce el curso: ")
+
+        let cursoFilter = alumnos.filter(a => a.codigo.split("-")[1] == curso)
+        let alumnoFind = alumnos.find( a => a.nombre == alumno)
+
+        if (cursoFilter.length==0){
+            console.log('No hay ningún alumno en ese curso' + curso);
+        } else{
+            console.log('Alumnos del curso: ' + curso)
+            cursoFilter.forEach(a => console.log(a.curso))
+            console.log(alumno)
+        }
+    }
+
+    function ordenaEdad(){
+        let ordenar = alumnos.sort((a, b) => b.edad - a.edad)
+        console.log(ordenar)
+    }
+
+    function ordenaNombreAsc(){
+        let ordenarAsc = alumnos.sort((a, b) => a.nombre.localeCompare(b.nombre))
+        console.log(ordenarAsc)
+    }
+
+    function ordenaNombreDesc(){
+        let ordenarDesc = alumnos.sort((a, b) => b.nombre.localeCompare(a.nombre))
+        console.log(ordenarDesc)
+    }
+
+    function borrarAlumno(){
+        let borrarAlumno = prompt("Escribe el nombre del alumno que deseas borrar: ");
+        let pos = alumnos.findIndex(a => a.nombre == borrarAlumno)
+
+        if(pos == -1){ 
+            console.log('El alumno no está en el sistema')
+        } else {
+            alumnos.slice(pos,1)
+            console.log(borrarAlumno)
+        }
+    }
+
+    function nuevoAlumno(){
+        let codigo = prompt("¿Cuál es el código del alumno?")
+        let nombre = prompt("¿Cuál es el nombre del alumno?")
+        let ciudad = prompt("¿Cuál es la ciudad del alumno?")
+        let calificaciones = prompt("Inserta las calificaciones del alumno")
+        let edad = prompt("¿Cuál es la edad del alumno?")
+
+        let miAlumno = ({
+            "codigo": codigo,
+            "nombre": nombre,
+            "ciudad": ciudad,
+            "calificaciones": [],
+            "edad": parseInt(edad)
+        })
+        alumnos.push(miAlumno)
+        console.log(alumnos)
+    }
+    
+    function nuevaAsignatura(){
+        let nombreAlumno = prompt("Inserta el nombre del alumno")
+        let pos = alumnos.findIndex(a => a.nombre == nombreAlumno)
+
+        if (pos == -1){
+            console.log("El alumno no está en el sistema")
+        } else {
+            let asignatura = prompt("Nombre de la asignatura: ")
+            let nota = prompt("Inserta la nota que tiene el alumno en esa asignatura")
+
+            nota = alumnos[pos].calificaciones.find(c => c.asignatura == nota)
+            
+            if(nota != undefined){
+                calificacion.nota = nota
+            } else{
+                alumnos[pos].calificaciones.push({'asignatura': asignatura, 'nota': nota})   
+            }
+        } 
+    }
+
+    function ordenaFecha(){
+        let f1 = parseInt("25-10-2022".split("-".reverse().join("")))
+        let f2 = parseInt("28-11-2021".split("-".reverse().join("")))
+    }
+
+</script>
+</html>

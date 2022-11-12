@@ -1,0 +1,35 @@
+#calendar {
+    font-family: Quicksand;
+}
+#calendar caption {
+    text-align: center;
+    padding: 5px 10px;
+    background-color:pink;
+    color:#fff;
+    font-weight: bold;
+    font-size: 24pt;
+}
+#calendar caption div:nth-child(1) {float:left;}
+#calendar caption div:nth-child(2) {float:right;}
+
+#calendar th {
+    background-color:#5b49fe;
+    color:#fff;
+    width:50px;
+    font-size: 20pt;
+}
+#calendar td {
+    text-align:center;
+    font-size: 14pt;
+    padding:2px 5px;
+    background-color:lightgray;
+}
+#calendar .hoy {
+    background-color: pink;
+}
+
+.h1{
+    font-family: Quicksand;
+    font-size: 20pt;
+    font-weight: bold;
+}
